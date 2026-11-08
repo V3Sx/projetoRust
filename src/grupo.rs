@@ -12,22 +12,22 @@ pub struct Grupo{
             nome,
             gid,
             membros_uids: Vec::new(),
-        }
     }
-
-    //adicionar membro
-    pub fn adiciona_membro(&mut self, uid: u16){
+    }
+    // Aqui vai a implementação de Grupo::adiciona_membro
+    pub fn adiciona_membro(&mut self, uid: u16) {
         self.membros_uids.push(uid);
     }
 
-    //listar 
-    pub fn listar_membro(&self){
-        println!("Grupo: {}", self.nome);
-        println!("GID: {}", self.gid);
-        println!("Membros:");
+    // Aqui vai a implementação de Grupo::remove_membro
+    pub fn remove_membro(&mut self, uid: u16) {
+        self.membros_uids.retain(|&u| u != uid);
+    }
 
+    // Aqui vai a implementação de Grupo::listar_membros
+    pub fn listar_membros(&self) {
         for uid in &self.membros_uids {
-            println!("UID {}", uid);
-        }
+            println!("Membro: {}", uid);
+         }
     }
 }
